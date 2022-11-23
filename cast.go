@@ -8,6 +8,7 @@ func ToStringMap(i interface{}) map[string]interface{} {
 	if m, ok := i.(map[string]interface{}); ok {
 		return m
 	}
+	logger.Printf("unable to cast %#v of type %T to map[string]interface{}", i, i)
 	return map[string]interface{}{}
 }
 
@@ -15,6 +16,7 @@ func ToSlice(i interface{}) []interface{} {
 	if m, ok := i.([]interface{}); ok {
 		return m
 	}
+	logger.Printf("unable to cast %#v of type %T to []interface{}", i, i)
 	return []interface{}{}
 }
 
@@ -24,6 +26,7 @@ func ToArray(i interface{}, size int) []interface{} {
 			return m
 		}
 	}
+	logger.Printf("unable to cast %#v of type %T to []interface{}", i, i)
 	return make([]interface{}, size)
 }
 
@@ -31,6 +34,7 @@ func ToFloat64(i interface{}) float64 {
 	if m, ok := i.(float64); ok {
 		return m
 	}
+	logger.Printf("unable to cast %#v of type %T to float64", i, i)
 	return 0.0
 }
 
@@ -38,6 +42,7 @@ func ToString(i interface{}) string {
 	if m, ok := i.(string); ok {
 		return m
 	}
+	logger.Printf("unable to cast %#v of type %T to string", i, i)
 	return ""
 }
 
@@ -49,5 +54,6 @@ func ToInt64(i interface{}) int64 {
 	if v, ok := i.(int32); ok {
 		return int64(v)
 	}
+	logger.Printf("unable to cast %#v of type %T to int64/int32", i, i)
 	return 0
 }
